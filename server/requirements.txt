@@ -8,3 +8,4 @@ mysqlclient==2.1.0
 PyMySQL==1.0.2
 python-dotenv==0.19.2
 sqlparse==0.4.2
+PyMySQL==1.0.2
