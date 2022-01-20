@@ -1,6 +1,9 @@
 <template>
-    <div id="canvas-container">
-    </div>
+  <div class="h-100 w-100">
+     <!-- <h1>test</h1> -->
+      <div id="canvas-container" class="h-100 w-100">
+      </div>
+  </div>
 </template>
 
 <script>
@@ -9,7 +12,9 @@ import Konva from 'konva'
 export default {
   name: 'Sketch',
   props: {
-    msg: String
+    msg: String,
+    // frameHeight:Number,
+    // frameWidth:Number
   },
   data(){
       return{
@@ -21,15 +26,19 @@ export default {
       }
   },
   mounted:function(){
+     let frame = document.getElementById("canvas-container");
+     console.log(frame.parentElement.offsetWidth);
+     console.log(frame.offsetHeight);
       this.stage = new Konva.Stage({
+  
           container: 'canvas-container', //親要素のdivタグのidを指定
-          width: 400, //キャンバスの横幅
-          height: 400 //キャンバスの高さ
+          width: frame.offsetWidth, //キャンバスの横幅
+          height: frame.offsetHeight //キャンバスの高さ
         }),
       this.layer = new Konva.Layer(),
       this.box = new Konva.Rect({
-            width: 400, //横幅
-            height: 400, //高さ
+            width: frame.offsetWidth, //横幅
+            height: frame.offsetHeight, //高さ
             fill: "#ddd", //塗り潰しの色
             stroke: "#000", //枠線の色
             strokeWidth: 1, //枠線の太さ
